@@ -1,0 +1,15 @@
+# Sesión y temporales de R / RStudio
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+*.Rcheck/
+.Renviron
+
+# Metadatos de despliegue locales (cada equipo tiene los suyos)
+rsconnect/
+
+# Sistema
+Thumbs.db
+desktop.ini
+.DS_Store
