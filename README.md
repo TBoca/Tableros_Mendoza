@@ -66,4 +66,7 @@ Se abre directamente en el navegador o se publica como sitio estático
 (GitHub Pages, Cloudflare Pages o cualquier servidor web). Las imágenes están en
 `assets/` y la página no depende de nada externo.
 
+Está publicada con GitHub Pages en **https://tboca.github.io/Tableros_Mendoza/**:
+cada push a `main` la actualiza automáticamente.
+
 
