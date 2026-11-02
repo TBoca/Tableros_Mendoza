@@ -37,11 +37,22 @@ Reemplace `appduraznoWS` por la carpeta del cultivo que quiera abrir.
 
 ## Publicación
 
-Los tableros se publican en Posit Connect Cloud desde este repositorio.
+Los tableros están publicados en Posit Connect Cloud (cuenta `tereboca`) y son de
+acceso público.
 
 | Tablero | Enlace |
 |---|---|
-| Durazno | _pendiente_ |
-| Vid | _pendiente_ |
-| Ciruela | _pendiente_ |
-| Olivo | _pendiente_ |
+| Durazno industria | https://01a19c68-7732-67c6-9207-2a78a6cf852c.share.connect.posit.cloud/ |
+| Vid | https://01a19c6a-e455-d2de-5060-493b7802f3fc.share.connect.posit.cloud/ |
+| Ciruela industria | https://01a19c6b-6f30-a174-afed-eb7911b1376d.share.connect.posit.cloud/ |
+| Olivo | https://01a19c6b-ee0a-dbc1-8b03-ac39870810af.share.connect.posit.cloud/ |
+
+Cada tablero se actualiza volviendo a desplegar su carpeta con `rsconnect`:
+
+```r
+rsconnect::deployApp("appduraznoWS")
+```
+
+La sesión de Connect Cloud de esta máquina queda guardada en `.rsconnect/`,
+que no se versiona.
+

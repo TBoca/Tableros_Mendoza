@@ -8,6 +8,13 @@
 
 # Metadatos de despliegue locales (cada equipo tiene los suyos)
 rsconnect/
+_records/
+
+# Credenciales de publicación (nunca versionar)
+.rsconnect/
+
+# Librería R local usada para pruebas y despliegue
+.rlib/
 
 # Sistema
 Thumbs.db
