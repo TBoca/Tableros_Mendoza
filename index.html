@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Tableros de Índice Tecnológico · Mendoza</title>
+<meta name="description" content="Tableros interactivos del Índice Tecnológico para durazno industria, vid, ciruela industria y olivo en Mendoza."/>
+<style>
+:root{
+  --bg:#f4f6f8;
+  --card:#ffffff;
+  --ink:#20303d;
+  --muted:#627282;
+  --line:#e6eaee;
+  --azul:#173b67;
+  --shadow:0 10px 24px rgba(15,23,42,.06);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Segoe UI, Arial, sans-serif}
+
+/* ---------- Encabezado ---------- */
+.header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #d9e1e7;box-shadow:0 8px 22px rgba(0,0,0,.06);overflow:hidden}
+.header::before{content:"";position:absolute;inset:0 auto auto 0;width:100%;height:100%;
+  background:linear-gradient(90deg,#39a7d8 0%,#39a7d8 28%,#d8dadd 28%,#d8dadd 49%,#d0aa73 49%,#d0aa73 74%,#1f3768 74%,#1f3768 100%);
+  z-index:-1}
+.header-inner{display:grid;grid-template-columns:96px 1fr;gap:18px;align-items:center;padding:18px 30px 20px;min-height:138px}
+.logoBox{height:92px;width:74px;background:#cfa875;border-radius:0 0 22px 22px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.logoBox img{height:78px;width:auto;display:block}
+.brand{font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:#fff;margin-bottom:8px;font-weight:800}
+.h1{font-size:36px;line-height:1.05;margin:4px 0 0;color:#fff;font-weight:900;text-shadow:0 2px 6px rgba(0,0,0,.22)}
+.subtitle{display:inline-block;margin-top:10px;font-size:16px;font-weight:700;color:#17324d;background:rgba(255,255,255,.88);padding:7px 12px;border-radius:999px}
+
+/* ---------- Estructura ---------- */
+.wrap{max-width:1500px;margin:0 auto;padding:18px}
+.hero{background:linear-gradient(180deg,#fff 0%,#f8fafc 100%);border:1px solid var(--line);border-radius:18px;padding:16px 18px;box-shadow:var(--shadow);margin-top:16px}
+.hero p{margin:0;font-size:14px;line-height:1.55;color:var(--muted);max-width:1100px}
+.hero strong{color:#17324d}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px;align-items:start}
+
+/* ---------- Tarjetas ---------- */
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;border-top:5px solid var(--accent,#1f4e79)}
+.shot{position:relative;display:block;background:#eef3f6;border-bottom:1px solid var(--line);overflow:hidden}
+.shot img{width:100%;height:auto;display:block;transition:transform .35s ease}
+.shot:hover img{transform:scale(1.02)}
+.shot .overlay{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:flex-end;padding:14px;opacity:0;transition:opacity .25s ease;background:linear-gradient(180deg,rgba(23,59,103,0) 45%,rgba(23,59,103,.55) 100%)}
+.shot:hover .overlay{opacity:1}
+.overlay span{background:#fff;color:#17324d;font-size:13px;font-weight:800;padding:8px 14px;border-radius:999px;box-shadow:0 6px 16px rgba(0,0,0,.18)}
+
+.body{padding:16px 18px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.body h2{margin:0;font-size:21px;color:#17324d;line-height:1.2}
+.btn{display:inline-flex;align-items:center;gap:8px;background:#1f4e79;color:#fff;text-decoration:none;font-weight:800;font-size:14px;padding:10px 18px;border-radius:999px;transition:background .2s ease, transform .15s ease;white-space:nowrap}
+.btn:hover{background:#173b67;transform:translateY(-1px)}
+.btn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- Bloque único de consideraciones ---------- */
+.info{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);margin-top:22px;overflow:hidden}
+.info-head{padding:20px 22px 0}
+.info-head h2{margin:0 0 6px;font-size:24px;color:#17324d}
+.info-head p{margin:0;font-size:13.5px;line-height:1.55;color:var(--muted);max-width:1050px}
+.info-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:18px 22px 6px}
+.info-col{background:#f8fafc;border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.info-col h3{margin:0 0 8px;font-size:15px;color:#17324d;display:flex;align-items:center;gap:9px}
+.num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:#1f4e79;color:#fff;font-size:12.5px;font-weight:800;flex:0 0 auto}
+.info-col p{margin:0;font-size:13px;line-height:1.5;color:#4a5a68}
+.info-col ul{margin:8px 0 0;padding-left:18px;font-size:12.5px;line-height:1.5;color:#4a5a68}
+.info-col li{margin-bottom:3px}
+.info-foot{padding:14px 22px 20px;display:flex;flex-direction:column;gap:10px}
+.formula{margin:0;font-size:13px;color:#50606f;background:#f7f9fb;border:1px dashed #dde3e9;border-radius:10px;padding:11px 13px;line-height:1.5}
+.formula code{font-family:Consolas, "Courier New", monospace;color:#173b67;font-size:13px}
+.formula b{color:#20303d}
+.risk{margin:0;font-size:12.5px;line-height:1.5;color:#4a5a68;background:#fdf8ee;border-left:4px solid #d0aa73;border-radius:8px;padding:10px 13px}
+.risk b{color:#8a6a2f}
+
+.page-footer{margin:22px auto 10px;text-align:center;font-size:12px;color:#6a7783;padding:10px 14px;line-height:1.6}
+.page-footer a{color:#1f4e79;text-decoration:none;font-weight:700}
+.page-footer a:hover{text-decoration:underline}
+
+@media (max-width:1000px){
+  .grid{grid-template-columns:1fr}
+  .info-cols{grid-template-columns:1fr}
+  .header-inner{grid-template-columns:82px 1fr;padding:16px 18px 18px;min-height:126px}
+  .h1{font-size:30px}
+}
+@media (max-width:700px){
+  .header-inner{grid-template-columns:60px 1fr;gap:12px}
+  .logoBox{height:74px;width:60px}
+  .logoBox img{height:60px}
+  .h1{font-size:24px}
+  .subtitle{font-size:14px}
+  .wrap{padding:12px}
+  .body{padding:14px}
+  .info-head,.info-cols,.info-foot{padding-left:16px;padding-right:16px}
+  .body h2{font-size:19px}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="logoBox"><img alt="Mendoza · Ministerio de Producción" src="assets/logo-mendoza.png"/></div>
+    <div>
+      <div class="brand">Dirección de Agricultura · Ministerio de Producción</div>
+      <h1 class="h1">Tableros de Índice Tecnológico</h1>
+      <div class="subtitle">Durazno industria · Vid · Ciruela industria · Olivo</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <p>
+      Los tableros presentan el <strong>Índice Tecnológico</strong> de los establecimientos frutícolas de Mendoza,
+      calculado a partir del Registro Único de Tierras (RUT). Permiten ajustar los pesos de cada factor,
+      filtrar por departamento, categoría de edad y rango del índice, y consultar la estadística y los mapas
+      departamentales de promedio, máximo, mínimo y varianza.
+    </p>
+  </section>
+
+  <section class="grid">
+
+    <!-- Durazno -->
+    <article class="card" style="--accent:#c9793a">
+      <a class="shot" href="https://01a19c68-7732-67c6-9207-2a78a6cf852c.share.connect.posit.cloud/" target="_blank" rel="noopener">
+        <img src="assets/durazno.jpg" alt="Pantalla de inicio del tablero de Durazno industria"/>
+        <span class="overlay"><span>Abrir tablero</span></span>
+      </a>
+      <div class="body">
+        <h2>Durazno industria</h2>
+        <a class="btn" href="https://01a19c68-7732-67c6-9207-2a78a6cf852c.share.connect.posit.cloud/" target="_blank" rel="noopener">
+          Ver tablero
+          <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+        </a>
+      </div>
+    </article>
+
+    <!-- Vid -->
+    <article class="card" style="--accent:#7a1f5c">
+      <a class="shot" href="https://01a19c6a-e455-d2de-5060-493b7802f3fc.share.connect.posit.cloud/" target="_blank" rel="noopener">
+        <img src="assets/vid.jpg" alt="Pantalla de inicio del tablero de Vid"/>
+        <span class="overlay"><span>Abrir tablero</span></span>
+      </a>
+      <div class="body">
+        <h2>Vid</h2>
+        <a class="btn" href="https://01a19c6a-e455-d2de-5060-493b7802f3fc.share.connect.posit.cloud/" target="_blank" rel="noopener">
+          Ver tablero
+          <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+        </a>
+      </div>
+    </article>
+
+    <!-- Ciruela -->
+    <article class="card" style="--accent:#9b5a8f">
+      <a class="shot" href="https://01a19c6b-6f30-a174-afed-eb7911b1376d.share.connect.posit.cloud/" target="_blank" rel="noopener">
+        <img src="assets/ciruela.jpg" alt="Pantalla de inicio del tablero de Ciruela industria"/>
+        <span class="overlay"><span>Abrir tablero</span></span>
+      </a>
+      <div class="body">
+        <h2>Ciruela industria</h2>
+        <a class="btn" href="https://01a19c6b-6f30-a174-afed-eb7911b1376d.share.connect.posit.cloud/" target="_blank" rel="noopener">
+          Ver tablero
+          <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+        </a>
+      </div>
+    </article>
+
+    <!-- Olivo -->
+    <article class="card" style="--accent:#5e7c1f">
+      <a class="shot" href="https://01a19c6b-ee0a-dbc1-8b03-ac39870810af.share.connect.posit.cloud/" target="_blank" rel="noopener">
+        <img src="assets/olivo.jpg" alt="Pantalla de inicio del tablero de Olivo"/>
+        <span class="overlay"><span>Abrir tablero</span></span>
+      </a>
+      <div class="body">
+        <h2>Olivo</h2>
+        <a class="btn" href="https://01a19c6b-ee0a-dbc1-8b03-ac39870810af.share.connect.posit.cloud/" target="_blank" rel="noopener">
+          Ver tablero
+          <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+        </a>
+      </div>
+    </article>
+
+  </section>
+
+  <section class="info">
+    <div class="info-head">
+      <h2>Consideraciones técnicas</h2>
+      <p>
+        Los cuatro tableros comparten la misma metodología. El índice tecnológico resume el nivel de tecnología
+        de manejo de cada establecimiento a partir de tres prácticas:
+      </p>
+    </div>
+
+    <div class="info-cols">
+      <div class="info-col">
+        <h3><span class="num">1</span> Sistemas de riego</h3>
+        <p>Se ponderan de mejor a peor combinando varios factores:</p>
+        <ul>
+          <li>Eficiencia en el uso del agua</li>
+          <li>Grado de automatización</li>
+          <li>Nivel tecnológico y de inversión</li>
+          <li>Capacidad de control sobre la aplicación de agua</li>
+          <li>Adaptabilidad a distintos cultivos y suelos</li>
+        </ul>
+      </div>
+      <div class="info-col">
+        <h3><span class="num">2</span> Defensa contra granizo</h3>
+        <p>Se estima el porcentaje de malla anti‑granizo de cada productor:</p>
+        <ul>
+          <li><b>porc_malla = (área con malla / área del lote) × 100</b></li>
+          <li>0 → sin malla</li>
+          <li>1 a 50 → baja cobertura</li>
+          <li>51 a 99 → alta cobertura</li>
+          <li>100 → cobertura total</li>
+        </ul>
+      </div>
+      <div class="info-col">
+        <h3><span class="num">3</span> Defensa contra heladas</h3>
+        <p>Se valora el nivel de protección que brinda el sistema según:</p>
+        <ul>
+          <li>Grado de intervención tecnológica</li>
+          <li>Costo de implementación y mantenimiento</li>
+          <li>Capacidad de control</li>
+          <li>Aplicabilidad y uso en fruticultura intensiva</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-foot">
+      <p class="formula">
+        <b>Índice tecnológico</b> = <code>α × valor_riego + β × valor_granizo + γ × valor_heladas</code>,
+        donde los coeficientes suman 1. Los tableros permiten modificar esos pesos y recalculan el índice en el momento.
+      </p>
+      <p class="risk">
+        <b>Ajuste por riesgo:</b> cuando el riesgo de helada o granizo es menor al 10 % y el valor tecnológico de la
+        práctica es menor a 50, el valor se duplica; en los demás casos se mantiene sin cambios. Así, las prácticas
+        de bajo nivel tecnológico reciben mayor peso relativo en zonas de bajo riesgo, donde resultan menos necesarias.
+      </p>
+    </div>
+  </section>
+
+  <footer class="page-footer">
+    Dirección de Agricultura · Ministerio de Producción · Gobierno de Mendoza<br/>
+    Fuente: Registro Único de Tierras (RUT) · Tableros publicados en Posit Connect Cloud ·
+    <a href="https://github.com/TBoca/Tableros_Mendoza" target="_blank" rel="noopener">Repositorio en GitHub</a>
+  </footer>
+
+</main>
+
+</body>
+</html>

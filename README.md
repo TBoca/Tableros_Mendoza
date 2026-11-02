@@ -56,3 +56,14 @@ rsconnect::deployApp("appduraznoWS")
 La sesión de Connect Cloud de esta máquina queda guardada en `.rsconnect/`,
 que no se versiona.
 
+## Página de inicio
+
+`index.html` es la página que reúne los cuatro tableros: una tarjeta por especie
+con la captura de la pantalla de inicio, el enlace al tablero y, debajo, un bloque
+único con las consideraciones técnicas que comparten los cuatro tableros.
+
+Se abre directamente en el navegador o se publica como sitio estático
+(GitHub Pages, Cloudflare Pages o cualquier servidor web). Las imágenes están en
+`assets/` y la página no depende de nada externo.
+
+

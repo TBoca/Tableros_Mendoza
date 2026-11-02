@@ -16,6 +16,10 @@ _records/
 # Librería R local usada para pruebas y despliegue
 .rlib/
 
+# Capturas temporales de verificacion
+_shots/
+_ref/
+
 # Sistema
 Thumbs.db
 desktop.ini
